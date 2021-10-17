@@ -25,3 +25,7 @@ function draw() {
 function mousePressed(){
   system.addFloatingPlastics()
 }
+
+function touchStarted() {
+  system.addFloatingPlastics()
+}

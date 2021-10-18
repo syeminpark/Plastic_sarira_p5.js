@@ -1,14 +1,17 @@
+//사리, convex 클래스, 그리고 floatingPlastics 배열을 통제.
 class BodySystem {
-    constructor(coreSize,iterations) {
-        this.floatingPlastics = [];
-        this.sarira= []
-
-        this.coreSize=coreSize
+    constructor(iterations) {
+        this.floatingPlastics = []
         this.iterations=iterations
-    }
+
+      }
+    
     //create Core
-    initialize(){
-        this.sarira.push(new Core(width / 2, height / 2, this.coreSize))
+    initialize(coreSize){
+      this.sarira=new Sarira()
+      this.sarira.initialize(coreSize);
+      this.convex=new Convex(this.sarira.plasticList)
+
     }
 
     addFloatingPlastics(){
@@ -22,22 +25,24 @@ class BodySystem {
     for (let plastics of this.floatingPlastics) {
         plastics.show();
       }
-     for (let sariraPlastics of this.sarira) {
-        sariraPlastics.show();
-      }
-      
+      this.sarira.showPlastics();
     }
     movePlastics(){
         for (let i = 0; i < this.iterations; i++) {
             for (let [index,micro] of this.floatingPlastics.entries()) {
                 micro.walk()
-              if (micro.checkStuck(this.sarira)) {
-                this.sarira.push(micro)
+              if (micro.checkStuck(this.sarira.plasticList)) {
+                 this.sarira.addPlastics(micro)
                 this.floatingPlastics.splice(index, 1);
               }
             }
           }
         }
+    operateConvex(){
+      this.convex.init()
+      this.convex.createConvexHull()
+      this.convex.createNewPoints(this.sarira.plasticList)
+    }
 
 
 }

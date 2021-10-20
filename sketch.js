@@ -2,8 +2,9 @@ let system
 
 function setup() {
   createCanvas(400, 400);
-  system = new BodySystem(200)
-  system.initialize(10)
+  system = new BodySystem(1)
+  system.initialize(10, 100)
+
 
 }
 

@@ -11,11 +11,10 @@ class Sarira {
 
         this.plasticList = []
 
-
     }
 
-    initialize(coreSize) {
-        this.plasticList.push(new Core(width / 2, height / 2, coreSize))
+    initialize(coreSize, mass) {
+        this.plasticList.push(new Core(width / 2, height / 2, coreSize, mass))
     }
 
 
@@ -24,6 +23,13 @@ class Sarira {
             plastic.show();
         }
     }
+
+    oscillate() {
+        for (let i = 1; i < this.plasticList.length; i++) {
+            this.plasticList[i].elastic()
+        }
+    }
+
 
     addPlastics(micro) {
         this.plasticList.push(micro)

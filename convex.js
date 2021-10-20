@@ -102,5 +102,16 @@ class Convex {
     }
   }
 
+  updateLocation(originalList) {
+    for (let i = 0; i < this.points.length; i++) {
+      if (this.points[i].position != originalList[i].position) {
+        this.points[i].position = originalList[i].position
+        console.log("updated")
+      }
+    }
+
+
+  }
+
 
 }

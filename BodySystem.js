@@ -3,13 +3,14 @@ class BodySystem {
   constructor(iterations) {
     this.floatingPlastics = []
     this.iterations = iterations
+    this.force = createVector(0, 0)
 
   }
 
   //create Core
-  initialize(coreSize) {
+  initialize(coreSize, mass) {
     this.sarira = new Sarira()
-    this.sarira.initialize(coreSize);
+    this.sarira.initialize(coreSize, mass);
     this.convex = new Convex(this.sarira.plasticList)
 
   }
@@ -31,13 +32,24 @@ class BodySystem {
   movePlastics() {
     for (let i = 0; i < this.iterations; i++) {
       for (let [index, micro] of this.floatingPlastics.entries()) {
-        micro.walk()
+        this.attractPlastics(micro);
+
         if (micro.checkStuck(this.sarira.plasticList)) {
           this.sarira.addPlastics(micro)
           this.floatingPlastics.splice(index, 1);
         }
       }
     }
+    //this.sarira.oscillate();
+    //this.convex.updateLocation(this.sarira.plasticList);
+  }
+
+
+  attractPlastics(micro) {
+    let force = this.sarira.plasticList[0].attract(micro);
+    micro.applyForce(force);
+    micro.walk()
+
   }
   operateConvex() {
     this.convex.init()

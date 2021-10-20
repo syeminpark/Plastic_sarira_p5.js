@@ -3,19 +3,26 @@ class Microplastic {
     constructor() {
         this.position = randomPoint()
         this.stuck = false;
-        this.radius = 4
-        this.velocity = 0
+        this.velocity = createVector(1, 0)
+        this.acceleration = createVector(0, 0)
         this.color = createVector(255, 0, 100)
         this.coreColor = 100
-        this.mass=1
+        this.mass = 4
+        this.radius = this.mass * 8;
+        this.velocity = createVector(0, 1)
+
+    }
+    applyForce(force) {
+        let f = p5.Vector.div(force, this.mass);
+        this.acceleration.add(f);
     }
 
     walk() {
-        this.velocity = p5.Vector.random2D();
-        this.velocity.div(this.mass)
+        //this.velocity = p5.Vector.random2D();
+        this.velocity.add(this.acceleration)
         this.position.add(this.velocity)
         this.position = createVector(constrain(this.position.x, 0, width), constrain(this.position.y, 0, height))
-
+        this.acceleration.mult(0)
     }
 
     checkStuck(others) {
@@ -38,7 +45,14 @@ class Microplastic {
         } else {
             fill(this.color.x, this.color.y, this.color.y);
         }
-        ellipse(this.position.x, this.position.y, this.radius * 2, this.radius * 2)
+        ellipse(this.position.x, this.position.y, this.radius * 2)
+    }
+
+    elastic() {
+        if (this.stuck) {
+            this.tick = new Date().getTime() * 0.001 - round(new Date().getTime() * 0.001)
+            this.position.add(Math.sin(PI * 2 * this.tick) * this.mass, Math.cos(PI * 2 * this.tick) * this.mass)
+        }
     }
 
 

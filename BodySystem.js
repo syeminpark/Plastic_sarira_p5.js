@@ -46,6 +46,7 @@ class BodySystem {
 
 
   attractPlastics(micro) {
+
     let force = this.sarira.plasticList[0].attract(micro);
     micro.applyForce(force);
     micro.walk()

@@ -31,14 +31,13 @@ class PE extends Microplastic {
         //머테리얼 종류 3차원에서만 구현. 투명성
         this.material
 
-        //밀도-다른 물체와 붙어있는 최초의 거리를 조절. 
         this.density = 0.94
 
         //무게
-        this.mass =
+        this.mass;
 
-            //인장 강도. 사리의 상태에서 조금씩 반복 운동하는 양을 조절.
-            this.tensileStrength;
+        //인장 강도. 사리의 상태에서 조금씩 반복 운동하는 양을 조절.
+        this.tensileStrength;
 
         this.init()
 
@@ -50,9 +49,8 @@ class PE extends Microplastic {
         this.orignalPurpose = this.originalPurposeList[int(random(0, this.originalPurposeList.length))]
         this.birthday = int(random(1979, 2021));
         this.color = createVector(random(255), random(255), random(255));
-        this.radius = int(random(1, 6))
-        //this.mass = this.density * this.radius
-        this.mass = random(0, 1)
+        this.radius = random(1, 6)
+        this.mass = this.density * (pow(this.radius, 3) * PI * 4 / 3)
         this.tensileStrength = map(4554, 0, 12400, 0, 10)
 
         print(this.mass)

@@ -8,12 +8,7 @@ class Core extends Microplastic {
         this.G = 1;
         this.previousOwner = 'Mother'
         this.type = "Plastic Sarira Seed";
-
-        this.dragOffset = createVector(0, 0);
-
-
-        this.G = 1
-
+        this.color = createVector(255, 255, 255)
 
     }
 

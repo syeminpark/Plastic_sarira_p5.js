@@ -6,9 +6,7 @@ class Microplastic {
         this.velocity = createVector(1, 0)
         this.acceleration = createVector(0, 0)
         this.color = createVector(255, 0, 100)
-        this.coreColor = 100
-        this.mass = 4
-        this.radius = this.mass * 8;
+        this.mass;
         this.velocity = createVector(0, 1)
 
     }
@@ -21,16 +19,22 @@ class Microplastic {
         //this.velocity = p5.Vector.random2D();
         this.velocity.add(this.acceleration)
         this.position.add(this.velocity)
-        this.position = createVector(constrain(this.position.x, 0, width), constrain(this.position.y, 0, height))
+        //this.position = createVector(constrain(this.position.x, 0, width), constrain(this.position.y, 0, height))
         this.acceleration.mult(0)
     }
+
 
     checkStuck(others) {
         //while(!stuck){
 
         for (let i = 0; i < others.length; i++) {
-            let d = distSq(this.position, others[i].position)
-            if (d < (this.radius * others[i].radius * 4)) {
+            // let d = distSq(this.position, others[i].position)
+            let d2 = dist(this.position.x, this.position.y, others[i].position.x, others[i].position.y)
+            //if (d < (this.radius * others[i].radius * 4)) {
+            //   this.stuck = true;
+            //   return true
+            //}
+            if (d2 < this.radius + others[i].radius) {
                 this.stuck = true;
                 return true
             }
@@ -40,11 +44,7 @@ class Microplastic {
 
     show() {
         noStroke()
-        if (this.stuck) {
-            fill(this.coreColor)
-        } else {
-            fill(this.color.x, this.color.y, this.color.y);
-        }
+        fill(this.color.x, this.color.y, this.color.y);
         ellipse(this.position.x, this.position.y, this.radius * 2)
     }
 
@@ -58,11 +58,11 @@ class Microplastic {
 
 }
 
-function distSq(a, b) {
-    let dx = b.x - a.x
-    let dy = b.y - a.y
-    return dx * dx + dy * dy
-}
+// function distSq(a, b) {
+//     let dx = b.x - a.x
+//     let dy = b.y - a.y
+//     return dx * dx + dy * dy
+// }
 
 function randomPoint() {
     var i = floor(random(4));

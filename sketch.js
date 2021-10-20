@@ -3,8 +3,8 @@ let system
 function setup() {
   createCanvas(400, 400);
   system = new BodySystem(1)
-  system.initialize(10, 100)
-
+  //coreSize, Mass
+  system.initialize(10, 50)
 
 }
 

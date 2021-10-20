@@ -920,30 +920,30 @@
                             break n
                         }
                         if (c) t: if (u || (u = new Zn), i = 1 & r, f = _e(n), o = f.length, c = _e(t).length, o == c || i) {
-                            for (a = o; a--;) {
-                                var l = f[a];
-                                if (!(i ? l in t : oi.call(t, l))) {
-                                    t = false;
-                                    break t
-                                }
-                            }
-                            if ((c = u.get(n)) && u.get(t)) t = c == t;
-                            else {
-                                c = true, u.set(n, t), u.set(t, n);
-                                for (var s = i; ++a < o;) {
-                                    var l = f[a],
-                                        h = n[l],
-                                        p = t[l];
-                                    if (e) var _ = i ? e(p, h, l, t, n, u) : e(h, p, l, n, t, u);
-                                    if (_ === T ? h !== p && !Mt(h, p, r, e, u) : !_) {
-                                        c = false;
-                                        break
+                                for (a = o; a--;) {
+                                    var l = f[a];
+                                    if (!(i ? l in t : oi.call(t, l))) {
+                                        t = false;
+                                        break t
                                     }
-                                    s || (s = "constructor" == l);
                                 }
-                                c && !s && (r = n.constructor, e = t.constructor, r != e && "constructor" in n && "constructor" in t && !(typeof r == "function" && r instanceof r && typeof e == "function" && e instanceof e) && (c = false)), u.delete(n), u.delete(t), t = c
-                            }
-                        } else t = false;
+                                if ((c = u.get(n)) && u.get(t)) t = c == t;
+                                else {
+                                    c = true, u.set(n, t), u.set(t, n);
+                                    for (var s = i; ++a < o;) {
+                                        var l = f[a],
+                                            h = n[l],
+                                            p = t[l];
+                                        if (e) var _ = i ? e(p, h, l, t, n, u) : e(h, p, l, n, t, u);
+                                        if (_ === T ? h !== p && !Mt(h, p, r, e, u) : !_) {
+                                            c = false;
+                                            break
+                                        }
+                                        s || (s = "constructor" == l);
+                                    }
+                                    c && !s && (r = n.constructor, e = t.constructor, r != e && "constructor" in n && "constructor" in t && !(typeof r == "function" && r instanceof r && typeof e == "function" && e instanceof e) && (c = false)), u.delete(n), u.delete(t), t = c
+                                }
+                            } else t = false;
                         else t = false
                     }
                 }

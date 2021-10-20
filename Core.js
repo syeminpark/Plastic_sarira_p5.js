@@ -1,15 +1,21 @@
 class Core extends Microplastic {
-    constructor(xPosition, yPosition, radius, mass) {
-        super(xPosition, yPosition)
+    constructor(xPosition, yPosition) {
+        super()
+        this.type = "PP(polypropylene)"; // polypropylene was identified in baby
+        this.originalPurposeList = ["Syringe", "Chip Bag", "Specimen Bottle", "Plastic Chair", "Car Battery Case", "Instrument Panel", "Rug, Lunch Box", "Packing Tape", "Coffee Machine"]
+        this.birthday = 1951
+        this.density = 0.92
+        this.tensileStrength = 5440
         this.position = createVector(xPosition, yPosition)
-        this.stuck = true
-        this.radius = radius
-        this.mass = mass
-        this.G = 1;
+        this.G = 2
         this.previousOwner = 'Mother'
-        this.type = "Plastic Sarira Seed";
-        this.color = createVector(255, 255, 255)
+        this.radius = 10
 
+    }
+
+    initialize() {
+        super.initialize()
+        this.color = createVector(255, 255, 255)
     }
 
     attract(floatingMicro) {

@@ -4,7 +4,7 @@ function setup() {
   createCanvas(400, 400);
   system = new BodySystem(1)
   //coreSize, Mass
-  system.initialize(10, 50)
+  system.initialize()
 
 }
 

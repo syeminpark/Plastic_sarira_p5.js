@@ -2,7 +2,7 @@ let system
 
 function setup() {
   createCanvas(400, 400);
-  system=new BodySystem(100)
+  system = new BodySystem(200)
   system.initialize(10)
 
 }
@@ -15,7 +15,7 @@ function draw() {
 
 }
 
-function mousePressed(){
+function mousePressed() {
   system.addFloatingPlastics()
 }
 

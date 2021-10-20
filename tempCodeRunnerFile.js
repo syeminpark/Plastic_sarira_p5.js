@@ -1,1 +1,0 @@
-this.radius*2

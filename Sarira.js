@@ -3,17 +3,18 @@ class Sarira {
     constructor() {
         this.totalWeight
         this.birthday
-        this.microplasticAmount
+        this.totalPlasticCount
         this.totalPlasticTypes
+        this.totalWeight
         this.totalRadius
         this.age
 
-        this.plasticList =[]
+        this.plasticList = []
 
 
     }
 
-    initialize(coreSize){
+    initialize(coreSize) {
         this.plasticList.push(new Core(width / 2, height / 2, coreSize))
     }
 
@@ -24,7 +25,7 @@ class Sarira {
         }
     }
 
-    addPlastics(micro){
+    addPlastics(micro) {
         this.plasticList.push(micro)
     }
 }

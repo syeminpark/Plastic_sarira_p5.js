@@ -51,7 +51,7 @@ class Microplastic {
     elastic() {
         if (this.stuck) {
             this.tick = new Date().getTime() * 0.001 - round(new Date().getTime() * 0.001)
-            this.position.add(Math.sin(PI * 2 * this.tick) * this.mass, Math.cos(PI * 2 * this.tick) * this.mass)
+            this.position.add(Math.sin(PI * 2 * this.tick) / this.tensileStrength, Math.cos(PI * 2 * this.tick) / this.tensileStrength)
         }
     }
 

@@ -51,7 +51,8 @@ class PE extends Microplastic {
         this.color = createVector(random(255), random(255), random(255));
         this.radius = random(1, 6)
         this.mass = this.density * (pow(this.radius, 3) * PI * 4 / 3)
-        this.tensileStrength = map(4554, 0, 12400, 0, 10)
+        //this.mass = this.density * this.radius * 2
+        this.tensileStrength = map(int(random(4440, 12400)), 4400, 12400, 0, 30)
 
         print(this.mass)
     }

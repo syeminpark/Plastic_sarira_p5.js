@@ -9,6 +9,7 @@ class Convex {
     this.finished;
   }
 
+  
   init() {
     //cannot create under 2 points.
     if (this.points.length < 2) {

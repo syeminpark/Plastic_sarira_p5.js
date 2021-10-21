@@ -9,7 +9,7 @@ class Convex {
     this.finished;
   }
 
-  
+
   init() {
     //cannot create under 2 points.
     if (this.points.length < 2) {
@@ -93,25 +93,7 @@ class Convex {
   }
 
   createNewPoints(list) {
-    let newList = _.cloneDeep(list)
-    let index = newList.length - this.points.length
-    if (index >= 0) {
-      for (let i = 0; i < index - 1; i++) {
-        this.points.push(newList[this.points.length + i]);
-      }
-
-    }
-  }
-
-  updateLocation(originalList) {
-    for (let i = 0; i < this.points.length; i++) {
-      if (this.points[i].position != originalList[i].position) {
-        this.points[i].position = originalList[i].position
-        console.log("updated")
-      }
-    }
-
-
+    this.points = _.cloneDeep(list)
   }
 
 

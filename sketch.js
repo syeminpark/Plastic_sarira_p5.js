@@ -13,6 +13,7 @@ function draw() {
   system.showPlastics()
   system.movePlastics()
   system.operateConvex()
+  showFrameRate()
 
 }
 
@@ -22,4 +23,14 @@ function mousePressed() {
 
 function touchStarted() {
   system.addFloatingPlastics()
+}
+
+function showFrameRate() {
+  textSize(12);
+  push()
+  stroke(255)
+  noFill()
+  text("FrameRate: ", 10, 30)
+  text(int(frameRate()), 10, 50)
+  pop()
 }

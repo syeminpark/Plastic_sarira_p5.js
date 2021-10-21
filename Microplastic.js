@@ -8,6 +8,8 @@ class Microplastic {
 
         this.color = createVector(255, 0, 100)
 
+        this.phase = random()
+
         //nano plastic size
         this.radius = random(0.1, 5)
         //색깔. 랜덤 
@@ -33,7 +35,7 @@ class Microplastic {
         this.color = createVector(random(255), random(255), random(255));
         this.mass = this.density * this.radius * 2
         //this.mass = this.density * (pow(this.radius, 3) * PI * 4 / 3)
-        this.tensileStrength = map(this.tensileStrength, 4400, 12400, 1, 10)
+        this.tensileStrength = map(this.tensileStrength, 4400, 12400, 5, 10)
     }
 
     addOwnerInfo(currentOwnerName, holdTime) {
@@ -82,14 +84,10 @@ class Microplastic {
     }
 
 
-    // elastic() {
-    //     if (this.stuck) {
-    //         this.tick = new Date().getTime() * 0.001 - round(new Date().getTime() * 0.001)
-    //         this.position.add(Math.sin(PI * 2 * this.tick) / this.tensileStrength, Math.cos(PI * 2 * this.tick) / this.tensileStrength)
-    //     }
-    // }
-
-
+    elastic() {
+        this.tick = new Date().getTime() * 0.001 - round(new Date().getTime() * 0.001) + this.phase
+        this.position.add(Math.sin(PI * 2 * this.tick) / this.tensileStrength, Math.cos(PI * 2 * this.tick) / this.tensileStrength)
+    }
 }
 
 function randomPoint() {

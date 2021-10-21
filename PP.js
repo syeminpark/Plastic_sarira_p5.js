@@ -7,7 +7,8 @@ class PP extends Microplastic {
         this.originalPurposeList = ["Syringe", "Chip Bag", "Specimen Bottle", "Plastic Chair", "Car Battery Case", "Instrument Panel", "Rug, Lunch Box", "Packing Tape", "Coffee Machine"]
         this.birthday = 1951
         this.density = 0.92
-        this.tensileStrength = 5440
+        // this.tensileStrength = 5440  //real 
+        this.tensileStrength = 9000
     }
 
 }

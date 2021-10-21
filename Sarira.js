@@ -26,9 +26,11 @@ class Sarira {
         this.plasticList.push(micro)
     }
 
-    // oscillate() {
-    //     for (let i = 1; i < this.plasticList.length; i++) {
-    //         this.plasticList[i].elastic()
-    //     }
-    // }
+    oscillate() {
+        for (let i = 0; i < this.plasticList.length; i++) {
+            this.plasticList[i].elastic()
+        }
+    }
+
+
 }

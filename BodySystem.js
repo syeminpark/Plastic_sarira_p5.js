@@ -4,7 +4,7 @@ class BodySystem {
     this.floatingPlastics = []
     this.sarira = []
 
-    
+
   }
 
   //create Core
@@ -17,7 +17,13 @@ class BodySystem {
   addFloatingPlastics() {
     //this should change to specific mircoplastic type
     //also could be an outer sarira
-    let pe = new PE()
+    let choose = int(random(0, 1))
+    let pe;
+    if (choose) {
+      pe = new PE()
+    } else {
+      pe = new PP()
+    }
     pe.initialize()
     this.floatingPlastics.push(pe)
   }
@@ -38,9 +44,7 @@ class BodySystem {
         this.floatingPlastics.splice(index, 1);
       }
     }
-
-    //this.sarira.oscillate();
-    //this.convex.updateLocation(this.sarira.plasticList);
+    this.sarira.oscillate();
   }
 
   attractPlastics(micro) {

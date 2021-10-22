@@ -2,9 +2,14 @@ function mousePressed() {
     system.addFloatingPlastics()
 }
 
-function touchStarted() {
-    system.addFloatingPlastics()
+function mouseDragged() {
+    system.iterm.moveBar()
 }
+
+function touchStarted() {
+    mousePressed()
+}
+
 
 function showFrameRate() {
     textSize(12);

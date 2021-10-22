@@ -4,9 +4,6 @@ function setup() {
   createCanvas(400, 400);
   system = new BodySystem()
   system.initialize()
-
-
-
 }
 
 function draw() {
@@ -14,7 +11,7 @@ function draw() {
   system.showPlastics()
   system.movePlastics()
   system.operateConvex()
-  system.showData()
+  system.showTerminal()
 
   showFrameRate()
 

@@ -2,6 +2,7 @@
 class BodySystem {
   constructor() {
     this.floatingPlastics = []
+    this.iterm
   }
 
   //create Core
@@ -9,6 +10,8 @@ class BodySystem {
     this.sarira = new Sarira()
     this.sarira.initialize();
     this.convex = new Convex(this.sarira.plasticList)
+
+    this.iterm = new Terminal();
   }
 
   addFloatingPlastics() {
@@ -56,10 +59,8 @@ class BodySystem {
     this.convex.createNewPoints(this.sarira.plasticList)
   }
 
-  showData() {
-    let iterm = new Terminal();
-    iterm.scrollBar()
-    iterm.showData();
+  showTerminal() {
+    this.iterm.show()
   }
 
 }

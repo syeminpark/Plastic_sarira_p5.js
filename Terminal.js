@@ -1,15 +1,26 @@
 class Terminal {
 
     constructor() {
-
         this.scrollBarWidth = 15
         this.scrollBarHeight = 80
         this.movableBarWidth = this.scrollBarWidth
         this.movableBarHeight = 80
         this.movableBarYPosition = height - this.scrollBarHeight
         this.categoryList = ["Type", "Date Created", "Original Purpose", "Past Owners", "Retrieved Method", "Date Obtained"]
+
     }
 
+    //receives metaDataList from sarira class.
+    addData(metaDataList) {
+        for (let categoryList of metaDataList) {
+            for (let metaData of categoryList) {
+                console.log(metaData)
+
+            }
+        }
+
+
+    }
 
     moveBar() {
         if (mouseY > height - this.scrollBarHeight && mouseY < height - this.movableBarHeight) {
@@ -19,8 +30,9 @@ class Terminal {
     }
 
     adjustMovableBarLength() {
-        this.movableBarHeight = 80
+        this.movableBarHeight;
     }
+
 
 
     show() {
@@ -52,7 +64,7 @@ class Terminal {
         text("Original Purpose", 105, height - 60)
         text("Past Owners", 175, height - 60)
         text("Retrieved Method", 235, height - 60)
-        text("Date Obtained", 310, height - 60)
+        text("Date Retrieved", 310, height - 60)
         pop()
     }
 }

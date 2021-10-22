@@ -2,9 +2,10 @@ let system
 
 function setup() {
   createCanvas(400, 400);
-  system = new BodySystem(1)
-  //coreSize, Mass
+  system = new BodySystem()
   system.initialize()
+
+
 
 }
 
@@ -13,24 +14,8 @@ function draw() {
   system.showPlastics()
   system.movePlastics()
   system.operateConvex()
+  system.showData()
+
   showFrameRate()
 
-}
-
-function mousePressed() {
-  system.addFloatingPlastics()
-}
-
-function touchStarted() {
-  system.addFloatingPlastics()
-}
-
-function showFrameRate() {
-  textSize(12);
-  push()
-  stroke(255)
-  noFill()
-  text("FrameRate: ", 10, 30)
-  text(int(frameRate()), 10, 50)
-  pop()
 }

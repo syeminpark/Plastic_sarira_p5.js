@@ -32,5 +32,10 @@ class Sarira {
         }
     }
 
+    breathe() {
+
+    }
+
+
 
 }

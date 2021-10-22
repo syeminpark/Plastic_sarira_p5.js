@@ -21,10 +21,8 @@ class Microplastic {
 
         //이때까지 가지고 있던 생물들과 먹힌 시기, 보유 시기, 주인의 사망시기 
         this.history = {
-
             OwnerList: [],
-            holdTime: [],
-            deathDate: []
+            Obtainedway: []
         }
         this.origianlPurpose;
     }
@@ -65,9 +63,11 @@ class Microplastic {
 
     }
     show() {
+        push()
         noStroke()
         fill(this.color.x, this.color.y, this.color.y);
         ellipse(this.position.x, this.position.y, this.radius * 2)
+        pop()
     }
 
     applyForce(force) {

@@ -87,9 +87,11 @@ class Convex {
     return false;
   }
   drawLine(v1, v2) {
+    push()
     stroke(255);
     strokeWeight(1);
     line(v1.x, v1.y, v2.x, v2.y);
+    pop()
   }
 
   createNewPoints(list) {

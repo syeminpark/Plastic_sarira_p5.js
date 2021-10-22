@@ -1,7 +1,7 @@
 class Convex {
 
   constructor(list) {
-    this.points = _.cloneDeep(list)
+    this.pointsList = _.cloneDeep(list)
     this.vertexs;
     this.startingVertex;
     this.currentVertex;
@@ -12,7 +12,7 @@ class Convex {
 
   init() {
     //cannot create under 2 points.
-    if (this.points.length < 2) {
+    if (this.pointsList.length < 2) {
       this.finished = true;
       return
     }
@@ -27,7 +27,7 @@ class Convex {
 
   getStartingVertex() {
     let sv = null;
-    for (let p of this.points) {
+    for (let p of this.pointsList) {
       //give it first index when first statrs
       if (!sv) {
         sv = p.position
@@ -54,7 +54,7 @@ class Convex {
   }
   getNextVertex(current) {
     var next;
-    for (let p of this.points) {
+    for (let p of this.pointsList) {
       if (p.position === current) {
         continue;
       }
@@ -95,7 +95,7 @@ class Convex {
   }
 
   createNewPoints(list) {
-    this.points = _.cloneDeep(list)
+    this.pointsList = _.cloneDeep(list)
   }
 
 

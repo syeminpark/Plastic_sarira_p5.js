@@ -12,36 +12,27 @@ class Microplastic {
 
         //nano plastic size
         this.radius = random(0.1, 5)
-        //색깔. 랜덤 
-        this.color;
-        //무게
-        this.mass;
 
-        this.material
 
-        //이때까지 가지고 있던 생물들과 먹힌 시기, 보유 시기, 주인의 사망시기 
-        this.history = {
-            OwnerList: [],
-            Obtainedway: []
-        }
-        this.origianlPurpose;
     }
 
-    initialize() {
+    initialize(pastOwnersList, retrievedMethod, dateRetrieved) {
+
+        this.pastOwnersList = pastOwnersList
+        this.retrievedMethod = retrievedMethod
+        this.dateRetrieved = dateRetrieved
+
+
         this.orignalPurpose = this.originalPurposeList[int(random(0, this.originalPurposeList.length))]
-        this.birthday = int(random(this.birthday, 2021));
+        this.dateCreated = int(random(this.dateCreated, 2021));
         this.color = createVector(random(255), random(255), random(255));
         this.mass = this.density * this.radius * 2
-        //this.mass = this.density * (pow(this.radius, 3) * PI * 4 / 3)
+
         this.tensileStrength = map(this.tensileStrength, 4400, 12400, 5, 10)
-    }
+        this.passDataList = [this.type, this.dateCreated, this.orignalPurpose, this.pastOwnersList, this.retrievedMethod, this.dateRetrieved]
 
-    addOwnerInfo(currentOwnerName, holdTime) {
-        this.history.OwnerList.push(currentOwnerName)
-        this.history.holdTime.push(holdTime)
-        this.history.deathDate.push(holdTime)
-    }
 
+    }
 
     checkStuck(others) {
         //while(!stuck){
@@ -76,7 +67,6 @@ class Microplastic {
     }
 
     walk() {
-        //this.velocity = p5.Vector.random2D();
         this.velocity.add(this.acceleration)
         this.position.add(this.velocity)
         //this.position = createVector(constrain(this.position.x, 0, width), constrain(this.position.y, 0, height))
@@ -89,6 +79,7 @@ class Microplastic {
         this.position.add(Math.sin(PI * 2 * this.tick) / this.tensileStrength, Math.cos(PI * 2 * this.tick) / this.tensileStrength)
     }
 }
+
 
 function randomPoint() {
     var i = floor(random(4));
@@ -107,10 +98,3 @@ function randomPoint() {
         return createVector(width, y)
     }
 }
-
-
-// function distSq(a, b) {
-//     let dx = b.x - a.x
-//     let dy = b.y - a.y
-//     return dx * dx + dy * dy
-// }

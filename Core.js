@@ -2,21 +2,23 @@ class Core extends Microplastic {
     constructor(xPosition, yPosition) {
         super()
         this.type = "PP(polypropylene)"; // polypropylene was identified in baby
+        this.dateCreated = 1951
         this.originalPurposeList = ["Syringe", "Chip Bag", "Specimen Bottle", "Plastic Chair", "Car Battery Case", "Instrument Panel", "Rug, Lunch Box", "Packing Tape", "Coffee Machine"]
-        this.birthday = 1951
+        this.pastOwnersList = ["Mother"]
         this.density = 0.92
+        this.retrievedMethod = "Inheritance"
+        this.dateRetrieved = "Before Birth"
+
         this.tensileStrength = 5440
         this.position = createVector(xPosition, yPosition)
-        this.G = 2
-        this.previousOwner = 'Mother'
-        this.radius = 10
+        this.radius = 5
 
     }
 
     initialize() {
-        super.initialize()
-        this.color = createVector(255, 255, 255)
+        super.initialize(this.pastOwnersList, this.retrievedMethod, this.dateRetrieved)
     }
+
 
     attract(floatingMicro) {
         // Calculate direction of force
@@ -27,7 +29,8 @@ class Core extends Microplastic {
         distance = constrain(distance, 5, 20);
 
         // Calculate gravitional force magnitude
-        let strength = (this.G * this.mass * floatingMicro.mass) / (distance * distance);
+        let gForce = 2
+        let strength = (gForce * this.mass * floatingMicro.mass) / (distance * distance);
         // Get force vector --> magnitude * direction
         force.setMag(strength);
         return force;

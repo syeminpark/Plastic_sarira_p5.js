@@ -23,13 +23,18 @@ class Sarira {
     }
 
     addMetaData() {
-        //addMetaData to list
-        for (let plastic of this.plasticList) {
-            for (let [index, dataElement] of plastic.passDataList.entries()) {
-                this.obtainedDataList[index].push(dataElement)
-            }
+
+        //iterate over every (new) plastic inside sarira. 
+        let plastic = this.plasticList[this.plasticList.length - 1]
+        //iterate over every metadata for plastic 
+        for (let [index, dataElement] of plastic.passDataList.entries()) {
+            this.obtainedDataList[index].push(dataElement)
         }
+
     }
+
+
+
 
     oscillate() {
         for (let i = 0; i < this.plasticList.length; i++) {

@@ -6,7 +6,6 @@ class BodySystem {
     this.sarira = new Sarira()
     this.sarira.initialize();
     this.iterm = new Terminal()
-    this.iterm.addData(this.sarira.obtainedDataList)
 
   }
 
@@ -35,7 +34,6 @@ class BodySystem {
       if (micro.checkStuck(this.sarira.plasticList)) {
         this.sarira.addPlastics(micro)
         //add data to terminal
-        this.iterm.addData(this.sarira.obtainedDataList)
         this.floatingPlasticsList.splice(index, 1);
       }
     }
@@ -50,10 +48,12 @@ class BodySystem {
 
     }
 
+    this.sarira.operateConvex()
+
     this.sarira.showPlastics();
 
     //showTerminal
-    this.iterm.show()
+    this.iterm.show(this.sarira.obtainedDataList)
   }
 
 

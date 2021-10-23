@@ -1,9 +1,15 @@
 function mousePressed() {
-    system.addFloatingPlastics()
+
+    if (!system.iterm.isWithinBarRange()) {
+        system.addFloatingPlastics()
+    }
+
 }
 
 function mouseDragged() {
-    system.iterm.moveBar()
+    if (system.iterm.isWithinBarRange()) {
+        system.iterm.moveBar()
+    }
 }
 
 function touchStarted() {

@@ -1,7 +1,7 @@
 class Core extends Microplastic {
     constructor(xPosition, yPosition) {
         super()
-        this.type = "PP(polypropylene)"; // polypropylene was identified in baby
+        this.type = "PP"; // polypropylene was identified in baby
         this.dateCreated = 1951
         this.originalPurposeList = ["Syringe", "Chip Bag", "Specimen Bottle", "Plastic Chair", "Car Battery Case", "Instrument Panel", "Rug, Lunch Box", "Packing Tape", "Coffee Machine"]
         this.pastOwnersList = ["Mother"]

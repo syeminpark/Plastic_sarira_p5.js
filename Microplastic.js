@@ -18,12 +18,12 @@ class Microplastic {
 
     initialize(pastOwnersList, retrievedMethod, dateRetrieved) {
 
-        this.pastOwnersList = pastOwnersList
-        this.retrievedMethod = retrievedMethod
-        this.dateRetrieved = dateRetrieved
+        this.pastOwnersList = pastOwnersList || "Empty"
+        this.retrievedMethod = retrievedMethod || "Empty"
+        this.dateRetrieved = dateRetrieved || "Empty"
 
         this.orignalPurpose = this.originalPurposeList[int(random(0, this.originalPurposeList.length))]
-        this.dateCreated = int(random(this.dateCreated, 2021));
+        this.dateCreated = JSON.stringify(int(random(this.dateCreated, 2021)));
         this.color = createVector(random(255), random(255), random(255));
         this.mass = this.density * this.radius * 2
 

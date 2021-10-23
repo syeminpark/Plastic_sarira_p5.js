@@ -45,23 +45,39 @@ class Terminal {
 
     showMetaData(metaDataList) {
         let xOffset = 10
-        let spaceBetweeenWords = 60
+        let prevElement = 0;
 
         push()
         fill(255, 255, 255)
-        textSize(8)
+        textSize(6)
 
         for (let [indexHorizontal, category] of metaDataList.entries()) {
             for (let [indexVertical, metaData] of category.entries()) {
-                text(metaData, indexHorizontal * spaceBetweeenWords + xOffset, (indexVertical + this.firstDataSpace) * this.incrementVPerSentence + height - this.categoryYPosition - this.dataYOffset)
+                if (typeof (metaData) === 'object') {
+                    metaData = metaData.toString()
+
+                }
+
+                let spaceBetweeenWords = prevElement + 50
+
+
                 let temp = (indexVertical + this.firstDataSpace) * this.incrementVPerSentence + height - this.categoryYPosition
+                text(metaData, indexHorizontal * spaceBetweeenWords + xOffset, temp - this.dataYOffset)
+                prevElement = metaData.length
+
                 if (temp > this.maxLength) {
                     this.maxLength = temp
                 }
+
+
             }
         }
         pop()
         this.dataListHeight = metaDataList[0].length
+    }
+
+    drawMetaData() {
+
     }
 
     showDataCategory() {
@@ -100,4 +116,11 @@ class Terminal {
         this.showMetaData(metaDataList)
         this.adjustMovableBarLength()
     }
+
+
+
+
+
+
+
 }

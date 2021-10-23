@@ -7,9 +7,6 @@ class Sarira {
         this.plasticList[0].initialize()
         this.convex = new Convex(this.plasticList)
         this.obtainedDataList = new Array(5)
-    }
-
-    initialize() {
 
         for (let i = 0; i < 6; i++) {
             this.obtainedDataList[i] = new Array(0)
@@ -23,18 +20,13 @@ class Sarira {
     }
 
     addMetaData() {
-
         //iterate over every (new) plastic inside sarira. 
         let plastic = this.plasticList[this.plasticList.length - 1]
         //iterate over every metadata for plastic 
         for (let [index, dataElement] of plastic.passDataList.entries()) {
             this.obtainedDataList[index].push(dataElement)
         }
-
     }
-
-
-
 
     oscillate() {
         for (let i = 0; i < this.plasticList.length; i++) {

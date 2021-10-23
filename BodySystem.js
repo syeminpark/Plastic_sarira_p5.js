@@ -2,11 +2,9 @@
 class BodySystem {
   constructor() {
     this.floatingPlasticsList = []
-    this.iterm = new Terminal()
-    this.sarira = new Sarira()
-    this.sarira.initialize();
-    this.iterm = new Terminal()
 
+    this.sarira = new Sarira()
+    this.iterm = new Terminal()
   }
 
   addFloatingPlastics() {
@@ -23,7 +21,6 @@ class BodySystem {
     this.floatingPlasticsList.push(pe)
   }
 
-
   moveFloatingPlastics() {
 
     for (let [index, micro] of this.floatingPlasticsList.entries()) {
@@ -33,23 +30,19 @@ class BodySystem {
 
       if (micro.checkStuck(this.sarira.plasticList)) {
         this.sarira.addPlastics(micro)
-        //add data to terminal
         this.floatingPlasticsList.splice(index, 1);
       }
     }
     this.sarira.oscillate();
   }
 
-
   show() {
     //show plastics  
     for (let plastics of this.floatingPlasticsList) {
       plastics.show();
-
     }
 
     this.sarira.operateConvex()
-
     this.sarira.showPlastics();
 
     //showTerminal

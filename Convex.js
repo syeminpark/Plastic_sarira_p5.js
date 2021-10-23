@@ -43,6 +43,7 @@ class Convex {
 
   createConvexHull() {
     while (!this.finished) {
+
       this.nextVertex = this.getNextVertex(this.currentVertex);
       this.vertexs.push(this.nextVertex);
       this.drawLine(this.currentVertex, this.nextVertex);
@@ -88,11 +89,12 @@ class Convex {
   }
   drawLine(v1, v2) {
     push()
-    stroke(255);
+    stroke(255, 255, 255, 255);
     strokeWeight(1);
     line(v1.x, v1.y, v2.x, v2.y);
     pop()
   }
+
 
   createNewPoints(list) {
     this.pointsList = _.cloneDeep(list)

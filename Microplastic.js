@@ -22,7 +22,6 @@ class Microplastic {
         this.retrievedMethod = retrievedMethod
         this.dateRetrieved = dateRetrieved
 
-
         this.orignalPurpose = this.originalPurposeList[int(random(0, this.originalPurposeList.length))]
         this.dateCreated = int(random(this.dateCreated, 2021));
         this.color = createVector(random(255), random(255), random(255));

@@ -22,6 +22,9 @@ class Microplastic {
         this.retrievedMethod = retrievedMethod || "Empty"
         this.dateRetrieved = dateRetrieved || "Empty"
 
+        this.pastOwnersList=this.pastOwnersList.toString()
+    
+
         this.orignalPurpose = this.originalPurposeList[int(random(0, this.originalPurposeList.length))]
         this.dateCreated = JSON.stringify(int(random(this.dateCreated, 2021)));
         this.color = createVector(random(255), random(255), random(255));

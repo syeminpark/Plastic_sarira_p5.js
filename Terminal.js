@@ -45,7 +45,7 @@ class Terminal {
 
     showMetaData(metaDataList) {
         let xOffset = 10
-        let prevElement = 0;
+        let prevElement = null
 
         push()
         fill(255, 255, 255)
@@ -53,25 +53,24 @@ class Terminal {
 
         for (let [indexHorizontal, category] of metaDataList.entries()) {
             for (let [indexVertical, metaData] of category.entries()) {
-                if (typeof (metaData) === 'object') {
-                    metaData = metaData.toString()
 
-                }
-
-                let spaceBetweeenWords = prevElement + 50
+            // if(prevElement==null){
+            //     prevElement = metaData
+            // }
+            print(metaData.length)
+                let spaceBetweeenWords = metaData.length+50
 
 
                 let temp = (indexVertical + this.firstDataSpace) * this.incrementVPerSentence + height - this.categoryYPosition
                 text(metaData, indexHorizontal * spaceBetweeenWords + xOffset, temp - this.dataYOffset)
-                prevElement = metaData.length
+                // prevElement = metaData.length
 
                 if (temp > this.maxLength) {
                     this.maxLength = temp
                 }
-
-
             }
         }
+
         pop()
         this.dataListHeight = metaDataList[0].length
     }

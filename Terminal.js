@@ -56,10 +56,12 @@ class Terminal {
 
         for (let [indexHorizontal, category] of metaDataList.entries()) {
             for (let [indexVertical, metaData] of category.entries()) {
-                prevCategoryItem = metaDataList[prevCategory][prevItem]
 
-                spaceBetweeenWords = 68
-
+                if (indexHorizontal == 4) {
+                    spaceBetweeenWords = 52 + indexHorizontal * 4
+                } else {
+                    spaceBetweeenWords = 52 + indexHorizontal * 3
+                }
                 let temp = (indexVertical + this.firstDataSpace) * this.incrementVPerSentence + height - this.categoryYPosition
                 text(metaData, indexHorizontal * spaceBetweeenWords + xOffset, temp - this.dataYOffset)
 
@@ -82,9 +84,9 @@ class Terminal {
         textSize(8)
 
         text("Type", 5, height - this.categoryYPosition - this.dataYOffset)
-        text("Date Created", 60, height - this.categoryYPosition - this.dataYOffset)
-        text("Original Purpose", 130, height - this.categoryYPosition - this.dataYOffset)
-        text("Past Owners", 200, height - this.categoryYPosition - this.dataYOffset)
+        text("Date Created", 50, height - this.categoryYPosition - this.dataYOffset)
+        text("Origin", 125, height - this.categoryYPosition - this.dataYOffset)
+        text("Past Owners", 180, height - this.categoryYPosition - this.dataYOffset)
         text("Retrieved Method", 260, height - this.categoryYPosition - this.dataYOffset)
         text("Date Retrieved", 330, height - this.categoryYPosition - this.dataYOffset)
         pop()

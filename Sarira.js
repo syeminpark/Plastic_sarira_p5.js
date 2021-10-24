@@ -9,6 +9,7 @@ class Sarira {
         this.obtainedDataList = new Array(5)
 
         for (let i = 0; i < 6; i++) {
+
             this.obtainedDataList[i] = new Array(0)
         }
         this.addMetaData()

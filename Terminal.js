@@ -45,7 +45,10 @@ class Terminal {
 
     showMetaData(metaDataList) {
         let xOffset = 10
-        let prevElement = null
+        let prevCategory = 0
+        let prevItem = 0
+        let prevCategoryItem = metaDataList[0][0]
+        let spaceBetweeenWords
 
         push()
         fill(255, 255, 255)
@@ -53,17 +56,12 @@ class Terminal {
 
         for (let [indexHorizontal, category] of metaDataList.entries()) {
             for (let [indexVertical, metaData] of category.entries()) {
+                prevCategoryItem = metaDataList[prevCategory][prevItem]
 
-            // if(prevElement==null){
-            //     prevElement = metaData
-            // }
-            print(metaData.length)
-                let spaceBetweeenWords = metaData.length+50
-
+                spaceBetweeenWords = 68
 
                 let temp = (indexVertical + this.firstDataSpace) * this.incrementVPerSentence + height - this.categoryYPosition
                 text(metaData, indexHorizontal * spaceBetweeenWords + xOffset, temp - this.dataYOffset)
-                // prevElement = metaData.length
 
                 if (temp > this.maxLength) {
                     this.maxLength = temp
@@ -75,9 +73,7 @@ class Terminal {
         this.dataListHeight = metaDataList[0].length
     }
 
-    drawMetaData() {
 
-    }
 
     showDataCategory() {
         //Dataset
@@ -85,12 +81,12 @@ class Terminal {
         fill(255)
         textSize(8)
 
-        text("Type", 10, height - this.categoryYPosition - this.dataYOffset)
-        text("Date Created", 40, height - this.categoryYPosition - this.dataYOffset)
-        text("Original Purpose", 105, height - this.categoryYPosition - this.dataYOffset)
-        text("Past Owners", 175, height - this.categoryYPosition - this.dataYOffset)
-        text("Retrieved Method", 235, height - this.categoryYPosition - this.dataYOffset)
-        text("Date Retrieved", 310, height - this.categoryYPosition - this.dataYOffset)
+        text("Type", 5, height - this.categoryYPosition - this.dataYOffset)
+        text("Date Created", 60, height - this.categoryYPosition - this.dataYOffset)
+        text("Original Purpose", 130, height - this.categoryYPosition - this.dataYOffset)
+        text("Past Owners", 200, height - this.categoryYPosition - this.dataYOffset)
+        text("Retrieved Method", 260, height - this.categoryYPosition - this.dataYOffset)
+        text("Date Retrieved", 330, height - this.categoryYPosition - this.dataYOffset)
         pop()
 
     }

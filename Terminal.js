@@ -114,10 +114,4 @@ class Terminal {
         this.adjustMovableBarLength()
     }
 
-
-
-
-
-
-
 }
